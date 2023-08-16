@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:40:39 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/16 16:46:50 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/16 17:09:19 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,6 @@ static void	sort_list(int *a, int *b, int *a_len, int *b_len)
 	}
 }
 
-void	leaks(void)
-{
-	system("leaks push_swap");
-}
-
 int	main(int argc, char **argv)
 {
 	int	*a;
@@ -121,7 +116,6 @@ int	main(int argc, char **argv)
 
 	a_len = 0;
 	b_len = 0;
-	atexit(leaks);
 	if (valid_list(argc, argv))
 	{
 		a = create_list(argv, &a_len);
