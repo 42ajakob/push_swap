@@ -6,13 +6,13 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:13:06 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/15 23:52:15 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/16 16:39:45 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-unsigned int	long_check_ft_atoui(const char *s, unsigned int *a)
+int	long_check_ft_atoui(const char *s, int *a)
 {
 	long	res;
 	int		sign;
@@ -59,9 +59,9 @@ static int	is_str_dup(char **s)
 
 int	valid_list(int argc, char **s)
 {
-	int				i;
-	unsigned int	j;
-	int				len;
+	int	i;
+	int	j;
+	int	len;
 
 	i = 1;
 	if (argc < 2)
@@ -86,12 +86,12 @@ int	valid_list(int argc, char **s)
 	return (1);
 }
 
-int	check_list(unsigned int *a, int a_len)
+int	check_list(int *a, int *a_len)
 {
 	int	i;
 
 	i = 0;
-	while (i < a_len - 1)
+	while (i < *a_len - 1)
 	{
 		if (a[i] > a[i + 1])
 			return (0);
@@ -100,24 +100,21 @@ int	check_list(unsigned int *a, int a_len)
 	return (1);
 }
 
-void	sort_copy(unsigned int *copy, unsigned int *a, int *a_len)
+void	sort_copy(int *copy, int *a, int *a_len)
 {
 	int	tmp;
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	while (i < *a_len)
-	{
+	while (++i < *a_len)
 		copy[i] = a[i];
-		i++;
-	}
 	i = 0;
 	while (i++ < *a_len)
 	{
 		j = 0;
-		while (j++ < *a_len - 1)
+		while (j < *a_len - 1)
 		{
 			if (copy[j] > copy[j + 1])
 			{
@@ -125,6 +122,7 @@ void	sort_copy(unsigned int *copy, unsigned int *a, int *a_len)
 				copy[j + 1] = copy[j];
 				copy[j] = tmp;
 			}
+			j++;
 		}
 	}
 }

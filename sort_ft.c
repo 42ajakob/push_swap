@@ -6,27 +6,28 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:11:27 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/15 23:52:06 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/16 15:39:12 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	s(unsigned int *a, int *a_len)
+int	s(int *a, int *a_len)
 {
-	unsigned int	tmp;
+	int	tmp;
 
 	if (*a_len < 2)
-		return ;
+		return (0);
 	tmp = a[0];
 	a[0] = a[1];
 	a[1] = tmp;
+	return (1);
 }
 
-int	p(unsigned int *a, unsigned int *b, int *a_len, int *b_len)
+int	p(int *a, int *b, int *a_len, int *b_len)
 {
-	unsigned int	swap;
-	int				i;
+	int	swap;
+	int	i;
 
 	i = 0;
 	if (*a_len == 0)
@@ -49,15 +50,15 @@ int	p(unsigned int *a, unsigned int *b, int *a_len, int *b_len)
 	return (1);
 }
 
-int	r(unsigned int *a, int *a_len)
+int	r(int *a, int *a_len)
 {
-	unsigned int	swap;
-	int				i;
+	int	swap;
+	int	i;
 
+	swap = a[0];
 	i = 0;
 	if (*a_len < 2)
 		return (0);
-	swap = a[0];
 	while (i < *a_len)
 	{
 		a[i] = a[i + 1];
@@ -67,34 +68,34 @@ int	r(unsigned int *a, int *a_len)
 	return (1);
 }
 
-void	rr(unsigned int *a, int *a_len)
+int	rr(int *a, int *a_len)
 {
-	unsigned int	swap;
-	int				i;
+	int	swap;
+	int	i;
 
-	i = *a_len - 1;
-	if (*a_len < 2)
-		return ;
 	swap = a[*a_len - 1];
-	while (a[i])
+	i = *a_len;
+	if (*a_len < 2)
+		return (0);
+	while (i > 0)
 	{
-		a[i + 1] = a[i];
+		a[i] = a[i - 1];
 		i--;
 	}
 	a[0] = swap;
-	a[*a_len] = 0;
+	return (1);
 }
 
-void	sort_arr(unsigned int *a, int *a_len)
+void	sort_arr(int *a, int *a_len)
 {
-	unsigned int	*copy;
-	int				i;
-	int				j;
+	int	*copy;
+	int	i;
+	int	j;
 
 	copy = ft_calloc(sizeof(int), *a_len);
-	sort_copy(copy, a, a_len);
 	i = 0;
 	j = 0;
+	sort_copy(copy, a, a_len);
 	while (i < *a_len)
 	{
 		j = 0;
