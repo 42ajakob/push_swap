@@ -6,13 +6,13 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 19:21:51 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/17 15:28:20 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/17 17:45:08 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	long_check_atoi(const char *s)
+static int	check_int(const char *s)
 {
 	long	res;
 	int		sign;
@@ -32,7 +32,7 @@ int	long_check_atoi(const char *s)
 	}
 	res = res * sign;
 	if (res >= -2147483648 && res <= 2147483647)
-		return ((int) res);
+		return (1);
 	return (0);
 }
 
@@ -71,7 +71,7 @@ static int	valid_int_part_2(char *tmp)
 			len++;
 		k++;
 	}
-	if (len == 11 || !long_check_atoi(tmp))
+	if (len == 11 || !check_int(tmp))
 		return (ft_printf("Error\n"), 0);
 	return (1);
 }
@@ -96,7 +96,7 @@ int	valid_int(char **s)
 			}
 			j++;
 		}
-		if (tmp && tmp[0])
+		if (tmp)
 			ft_free(tmp);
 		i++;
 	}

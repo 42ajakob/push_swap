@@ -6,7 +6,7 @@
 #    By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 21:33:02 by ajakob            #+#    #+#              #
-#    Updated: 2023/08/09 14:47:19 by ajakob           ###   ########.fr        #
+#    Updated: 2023/08/17 17:17:55 by ajakob           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME	= libftprintf.a
 CFLAGS = -c -Wall -Wextra -Werror
 LIBFT	= libft/libft.a
 
-SRCS	= $(shell find ./ -maxdepth 1 -iname "*.c")
+SRCS	= ft_printf_utils.c \
+			ft_printf.c \
+			ft_puthexa.c \
+			ft_putunbr.c
 OBJS	= ${SRCS:.c=.o}
 
 all: $(NAME)

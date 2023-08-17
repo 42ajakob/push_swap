@@ -6,15 +6,15 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 21:06:28 by ajakob            #+#    #+#             */
-/*   Updated: 2023/01/04 02:15:05 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/17 17:37:28 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_hexa(char s, unsigned short p)
+void	print_hexa(char s, unsigned int p)
 {
-	if (p >= 0 && p <= 9)
+	if (p < 10)
 		p += 48;
 	else if (p >= 10 && p <= 16 && s == 'X')
 		p += 55;

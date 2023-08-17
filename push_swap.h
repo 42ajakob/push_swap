@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:40:48 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/17 15:08:18 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/17 17:27:24 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		valid_char(char **s);
 int		valid_int(char **s);
 int		int_is_dup(int *a, int *a_len);
 int		*copy_list(char **s, int *a_len);
-int		long_check_atoi(const char *s);
 char	**moded_split(char const *s);
 int		check_list(int *a, int *a_len);
 void	sort_copy(int *copy, int *a, int *a_len);

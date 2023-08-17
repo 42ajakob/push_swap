@@ -3,14 +3,19 @@ NAME		= push_swap
 CFLAGS		= -Wall -Wextra -Werror
 LIBFTPRINTF	= ft_printf/libftprintf.a
 
-SRCS		= $(shell find ./ -maxdepth 1 -iname "*.c")
+SRCS		= push_swap.c \
+				moded_split.c \
+				push_swap_utils.c \
+				sort_ft.c \
+				valid_list.c \
+				less_then_6.c
 OBJS		= ${SRCS:.c=.o}
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C ft_printf/
-	@$(CC) $(CFLAGS) $(SRCS) $(LIBFTPRINTF) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFTPRINTF) -o $(NAME)
 
 clean:
 	@make -C ft_printf/ clean
