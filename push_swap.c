@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:40:39 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/16 17:13:17 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/17 15:29:05 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 static int	*create_list(char **s, int *a_len)
 {
-	int	*list;
-	int	i;
+	char	**tmp;
+	int		*a;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (s[*a_len + 1])
-		*a_len = *a_len + 1;
-	list = ft_calloc(sizeof(int), *a_len);
-	if (!list)
+	j = 0;
+	while (s[j + 1])
 	{
-		ft_printf("Error\n");
-		exit(0);
+		i = 0;
+		tmp = moded_split(s[j + 1]);
+		while (tmp[i])
+		{
+			*a_len = *a_len + 1;
+			i++;
+		}
+		ft_free(tmp);
+		j++;
 	}
-	while (s[i + 1] && i < *a_len)
-	{
-		long_check_ft_atoui(s[i + 1], &list[i]);
-		i++;
-	}
-	return (list);
+	a = copy_list(s, a_len);
+	return (a);
 }
 
 static void	sort_small(int *a, int *b, int *a_len, int *b_len)
@@ -59,12 +61,12 @@ static void	radix_sort(int *a, int *b, int *a_len, int *b_len)
 	i = 0;
 	while (i < *a_len)
 	{
-		if ((a[0] & 1) == 1)
+		if ((a[0] & 1) == 0)
 		{
 			if (p(a, b, a_len, b_len))
 				ft_printf("pb\n");
 		}
-		else if ((a[0] & 1) == 0)
+		else if ((a[0] & 1) == 1)
 		{
 			if (r(a, a_len))
 				ft_printf("ra\n");
@@ -116,15 +118,18 @@ int	main(int argc, char **argv)
 
 	a_len = 0;
 	b_len = 0;
-	if (valid_list(argc, argv))
+	while (a_len < argc)
+	{
+		if (!argv[a_len++][0])
+			return (ft_printf("Error\n"), 0);
+	}
+	a_len = 0;
+	if (argc > 1 && valid_char(argv) && valid_int(argv))
 	{
 		a = create_list(argv, &a_len);
+		if (!int_is_dup(a, &a_len))
+			return (free(a), ft_printf("Error\n"), 0);
 		b = ft_calloc(sizeof(int), a_len);
-		if (!b)
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
 		sort_list(a, b, &a_len, &b_len);
 		free(a);
 		free(b);
