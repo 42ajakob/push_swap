@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 19:21:51 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/17 17:45:08 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:37:45 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	valid_int_part_2(char *tmp)
 			len++;
 		k++;
 	}
-	if (len == 11 || !check_int(tmp))
+	if (len > 10 || !check_int(tmp))
 		return (ft_printf("Error\n"), 0);
 	return (1);
 }
