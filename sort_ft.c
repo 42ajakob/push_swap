@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:11:27 by ajakob            #+#    #+#             */
-/*   Updated: 2023/09/01 16:24:23 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/09/01 16:56:22 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	sort_arr(int *a, int *a_len)
 			if (a[i] == copy[j])
 			{
 				a[i] = j;
-				break;
+				break ;
 			}
 			j++;
 		}
