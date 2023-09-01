@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:40:39 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/17 17:40:41 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/09/01 16:25:24 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	*create_list(char **s, int *a_len)
 	while (s[j + 1])
 	{
 		i = 0;
-		tmp = moded_split(s[j + 1]);
+		tmp = ft_split(s[j + 1], ' ');
 		while (tmp[i])
 		{
 			*a_len = *a_len + 1;

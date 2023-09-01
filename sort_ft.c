@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:11:27 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/16 15:39:12 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/09/01 16:24:23 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ void	sort_arr(int *a, int *a_len)
 
 	copy = ft_calloc(sizeof(int), *a_len);
 	i = 0;
-	j = 0;
 	sort_copy(copy, a, a_len);
 	while (i < *a_len)
 	{
@@ -102,7 +101,10 @@ void	sort_arr(int *a, int *a_len)
 		while (j < *a_len)
 		{
 			if (a[i] == copy[j])
+			{
 				a[i] = j;
+				break;
+			}
 			j++;
 		}
 		i++;

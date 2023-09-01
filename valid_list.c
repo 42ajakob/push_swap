@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 19:21:51 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/20 15:37:45 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:24:38 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	valid_int(char **s)
 	while (s[i + 1])
 	{
 		j = 0;
-		tmp = moded_split(s[i + 1]);
+		tmp = ft_split(s[i + 1], ' ');
 		while (tmp[j])
 		{
 			if (!valid_int_part_2(tmp[j]))

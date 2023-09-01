@@ -6,7 +6,7 @@
 /*   By: ajakob <ajakob@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:13:06 by ajakob            #+#    #+#             */
-/*   Updated: 2023/08/17 15:08:37 by ajakob           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:24:03 by ajakob           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	*copy_list(char **s, int *a_len)
 		j = 0;
 		if (s[i + 1] == NULL)
 			break ;
-		tmp = moded_split(s[i++ + 1]);
+		tmp = ft_split(s[i++ + 1], ' ');
 		while (tmp[j])
 		{
 			a[k++] = ft_atoi(tmp[j]);

@@ -4,7 +4,6 @@ CFLAGS		= -Wall -Wextra -Werror
 LIBFTPRINTF	= ft_printf/libftprintf.a
 
 SRCS		= push_swap.c \
-				moded_split.c \
 				push_swap_utils.c \
 				sort_ft.c \
 				valid_list.c \
